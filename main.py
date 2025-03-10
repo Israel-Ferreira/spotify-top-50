@@ -22,7 +22,7 @@ def create_playlist_on_db(api_response, playlist_repo):
     playlist_repo.insert_record_on_db(playlist_obj)
 
 
-    
+
 
 
 
@@ -49,7 +49,18 @@ if __name__ == "__main__":
     if playlist_response is not None:
         api_response = playlist_response.json()
 
+        items = api_response["tracks"]["items"]
+
         create_playlist_on_db(api_response, playlist_repo)
+
+        for item in items:
+            track =  item['track']
+            artists =  track['artists']
+
+            for artist in artists:
+                artista_repo.insert_record_on_db(artist)
+
+
 
 
 

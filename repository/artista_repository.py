@@ -10,8 +10,14 @@ class ArtistaRepository(AbstractRepository):
 
 
     def insert_record_on_db(self, obj):
-        pass
-    
+        cursor =  self.db_conn.cursor()
+
+        sql_query = '''
+        INSERT INTO ARTISTA (Id, Nome) VALUES (?,?)
+        '''
+
+        cursor.execute(sql_query, (obj['id'], obj['name']))
+        self.db_conn.commit()
 
 
     def create_table_on_db(self):
