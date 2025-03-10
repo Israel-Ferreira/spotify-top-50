@@ -45,7 +45,7 @@ class SpotifyService:
         
         auth_token =  auth_response.json()['access_token']
 
-        get_playlist_url =  f"https://api.spotify.com/v1/playlists/{playlist_id}?market=BR"
+        get_playlist_url =  f"https://api.spotify.com/v1/playlists/{playlist_id}"
 
         headers =  {
             "Authorization": f"Bearer {auth_token}"

@@ -13,7 +13,7 @@ class ArtistaRepository(AbstractRepository):
         cursor =  self.db_conn.cursor()
 
         sql_query = '''
-        INSERT INTO ARTISTA (Id, Nome) VALUES (?,?)
+        INSERT OR REPLACE INTO ARTISTA (Id, Nome) VALUES (?,?)
         '''
 
         cursor.execute(sql_query, (obj['id'], obj['name']))

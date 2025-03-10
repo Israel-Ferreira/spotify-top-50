@@ -16,7 +16,7 @@ class PlaylistRepository(AbstractRepository):
         title = obj["title"]
 
         sql_query = f'''
-        INSERT INTO Playlist (Id, Titulo) VALUES (?,?)
+        INSERT OR REPLACE INTO Playlist (Id, Titulo) VALUES (?,?)
         '''
 
         print(sql_query)
